@@ -7,6 +7,7 @@ const LADDER = 1;
 const SNAKE = 2;
 
 var currentPosition = START_POSITION;
+var count = 0;
 
 rollDie = () => {
     let diceNumber = (Math.floor(Math.random() * 10) % 6) + 1;
@@ -42,6 +43,7 @@ option = () => {
             console.log("Player got No Play and it on position : " + currentPosition);
             break;
     }
+    count++
     return currentPosition;
 }
 
@@ -50,6 +52,7 @@ winPosition = () => {
         var lastPosition = option();
         if (lastPosition == END_POSITION){
             console.log("Player Reach the Winning Position And Won the Game");
+            console.log("Number of times die Rolled : " + count);
         }
     }
 }
