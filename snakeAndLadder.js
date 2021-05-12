@@ -38,4 +38,11 @@ option = () => {
             break;
     }
 }
-option();
+
+winPosition = () => {
+    while (currentPosition < END_POSITION) {
+        option();
+    }
+}
+
+winPosition();
