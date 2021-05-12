@@ -25,7 +25,7 @@ option = () => {
                 break;
             } else {
                 currentPosition += die;
-                console.log("Player got Ladder and it jump by "+ die +" position and it Move to position : " + currentPosition);
+                console.log("Player got Ladder and it jump by " + die + " position and it Move to position : " + currentPosition);
                 break;
             }
         case SNAKE:
@@ -47,13 +47,25 @@ option = () => {
     return currentPosition;
 }
 
-winPosition = () => {
-    while (currentPosition < END_POSITION) {
-        var lastPosition = option();
-        if (lastPosition == END_POSITION){
-            console.log("Player Reach the Winning Position And Won the Game");
-            console.log("Number of times die Rolled : " + count);
+twoPlayers = () => {
+    Player1Position = START_POSITION;
+    Player2Position = START_POSITION;
+    while (Player1Position < END_POSITION && Player2Position < END_POSITION) {
+        console.log("Player 1 Turn")
+        Player1Position = option();
+        console.log("-------------------------------------------------------------------------");
+        if (Player1Position == END_POSITION) {
+            console.log("Player 1 Won The Game ");
+            break;
+        }
+        console.log("Player 2 Turn")
+        Player2Position = option();
+        console.log("-------------------------------------------------------------------------");
+        if (Player2Position == END_POSITION) {
+            console.log("Player 2 Won The Game ");
+            break;
         }
     }
 }
-winPosition();
+twoPlayers();
+console.log("GAME OVER");
